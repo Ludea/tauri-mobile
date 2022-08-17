@@ -3,3 +3,6 @@ name = "hello"
 stylized-name = "Hello"
 domain = "tauri.app"
 template-pack = "tauri"
+
+[Package.config.cargo-android.android]
+project-dir = "."
