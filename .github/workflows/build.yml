@@ -24,7 +24,7 @@ jobs:
     - uses: nttld/setup-ndk@v1
       id: setup-ndk
       with:
-        ndk-version: r22e
+        ndk-version: r22b
         add-to-path: false
     - name: create Android project 
       run: cargo android build 
