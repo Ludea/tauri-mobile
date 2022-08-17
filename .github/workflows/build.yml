@@ -37,4 +37,4 @@ jobs:
     - name: Gradle
       run: |
         ls gen/android/hello
-        gen/android/hello/gradlew build
+        cd gen/android/hello && ./gradlew build
