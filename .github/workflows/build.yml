@@ -26,6 +26,10 @@ jobs:
       with:
         ndk-version: r24
         add-to-path: false
+    - name: Iinit Android project 
+      run: cargo mobile init 
+      env:
+        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - name: Build Android project 
       run: cargo android build 
       env:
