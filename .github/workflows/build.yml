@@ -10,7 +10,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
+  build_android:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
@@ -38,7 +38,7 @@ jobs:
       run: cd gen/android/hello && ./gradlew build
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-  build:
+  build_ios:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
