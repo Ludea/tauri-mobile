@@ -38,3 +38,11 @@ jobs:
       run: cd gen/android/hello && ./gradlew build
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: init 
+      run: cargo mobile init
+    - name: build
+      run: cargo Apple build
