@@ -40,8 +40,8 @@ jobs:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - uses: actions/upload-artifact@v3
       with:
-      name: Hello.apk
-      path: gen/android/hello/app/build/outputs/apk/arm64/debug/app-arm64-debug.apk 
+        name: Hello.apk
+        path: gen/android/hello/app/build/outputs/apk/arm64/debug/app-arm64-debug.apk 
   IOS:
     runs-on: macos-latest
     steps:
