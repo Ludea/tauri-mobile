@@ -21,8 +21,9 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0
-    - name: Build
-      run: |
-        cargo install --git https://github.com/tauri-apps/cargo-mobile 
+    - name: Install cargo mobile 
+      run: cargo install --git https://github.com/tauri-apps/cargo-mobile 
+    - name: create Android project 
+      run: cargo android build 
     - name: Run tests
       run: cargo test --verbose
