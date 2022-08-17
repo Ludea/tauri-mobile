@@ -35,4 +35,7 @@ jobs:
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - name: Gradle
-      run: gen/hello/gradlew build
+      run: |
+        ls gen/
+        ls gen/android
+        gen/android/gradlew build
