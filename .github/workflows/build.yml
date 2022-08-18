@@ -31,7 +31,7 @@ jobs:
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - name: Build Android project 
-      run: cargo android build aarch64
+      run: cargo android build
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - name: Gradle
