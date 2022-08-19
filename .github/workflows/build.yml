@@ -24,6 +24,8 @@ jobs:
       with:
         ndk-version: r22b
         add-to-path: false
+    - name: install app dependencies and build it
+      run: yarn && yarn build
     - name: build 
       run: yarn tauri android build
     - name: Gradle
@@ -40,6 +42,8 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
+    - name: install app dependencies and build it
+      run: yarn && yarn build
     - name: build 
       run: yarn tauri ios build
 
