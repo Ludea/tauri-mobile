@@ -1,8 +1,0 @@
-[app]
-name = "hello"
-stylized-name = "Hello"
-domain = "tauri.app"
-template-pack = "tauri"
-
-[apple]
-development-team = "foo"
