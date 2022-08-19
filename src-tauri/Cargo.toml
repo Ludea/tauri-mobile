@@ -12,12 +12,12 @@ name = "hello-desktop"
 path = "src/main.rs"
 
 [build-dependencies]
-tauri-build = { git = "https://github.com/tauri-apps/tauri" }
+tauri-build = { git = "https://github.com/tauri-apps/tauri", branch = "feat/mobile" }
 
 [dependencies]
 anyhow = "1.0.56"
 log = "0.4.11"
-tauri = { git = "https://github.com/tauri-apps/tauri" }
+tauri = { git = "https://github.com/tauri-apps/tauri", branch = "feat/mobile" }
 wry = "0.20"
 
 [target.'cfg(target_os = "android")'.dependencies]
