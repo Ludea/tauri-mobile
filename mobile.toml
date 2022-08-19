@@ -5,4 +5,4 @@ domain = "tauri.app"
 template-pack = "tauri"
 
 [apple]
-development-team = ""
+development-team = "foo"
