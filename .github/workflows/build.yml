@@ -26,14 +26,8 @@ jobs:
       with:
         ndk-version: r22b
         add-to-path: false
-    - name: Init Android project 
-      run: cargo mobile init 
-      env:
-        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-    - name: Build Android project 
-      run: cargo android build
-      env:
-        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+    - name: build 
+      run: yarn tauri android build
     - name: Gradle
       run: cd gen/android/hello && ./gradlew build
       env:
@@ -48,9 +42,6 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
-    - name: install cargo-mobile
-      run: cargo install --git https://github.com/tauri-apps/cargo-mobile 
-    - name: init 
-      run: cargo mobile init
-    - name: build
-      run: cargo apple build
+    - name: build 
+      run: yarn tauri ios build
+
