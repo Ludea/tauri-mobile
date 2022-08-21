@@ -3,16 +3,11 @@ import routes from 'routes';
 import Layout from 'layouts/Layout';
 
 const App = () => {
-  const content = useRoutes([
-  {
-     path: '',
-     element: <Layout />,
-  },
-]);
+  const content = useRoutes(routes);
 
   return (
     <div>
-      {content}  
+      {content}
     </div>
   )
 }

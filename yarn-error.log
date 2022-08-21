@@ -1,30 +1,25 @@
 Arguments: 
-  /data/data/com.termux/files/usr/bin/node /data/data/com.termux/files/usr/share/yarn/bin/yarn.js add @types/react-router-do
+  C:\Program Files\nodejs\node.exe C:\Users\Ludovic\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js dev
 
 PATH: 
-  /data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/opt/emscripten
+  C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Users\Ludovic\AppData\Roaming\ActiveState\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\PuTTY\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\CMake\bin;C:\ProgramData\chocolatey\bin;C:\Android;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Perforce\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files (x86)\IncrediBuild;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\Ludovic\.cargo\bin;C:\Users\Ludovic\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\Ludovic\AppData\Local\Programs\Python\Python39\;C:\Users\Ludovic\AppData\Local\Microsoft\WindowsApps;C:\Users\Ludovic\AppData\Local\GitHubDesktop\bin;C:\Program Files (x86)\GitHub CLI\;C:\Users\Ludovic\.dotnet\tools;C:\Users\Ludovic\.deno\bin;C:\Users\Ludovic\.dotnet\tools;C:\Users\Ludovic\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Ludovic\AppData\Roaming\npm
 
 Yarn version: 
-  1.22.19
+  1.22.5
 
 Node version: 
-  18.7.0
+  18.4.0
 
 Platform: 
-  android arm64
+  win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2freact-router-do: Not found
-      at params.callback [as _callback] (/data/data/com.termux/files/usr/share/yarn/lib/cli.js:66145:18)
-      at self.callback (/data/data/com.termux/files/usr/share/yarn/lib/cli.js:140890:22)
-      at Request.emit (node:events:513:28)
-      at Request.<anonymous> (/data/data/com.termux/files/usr/share/yarn/lib/cli.js:141862:10)
-      at Request.emit (node:events:513:28)
-      at IncomingMessage.<anonymous> (/data/data/com.termux/files/usr/share/yarn/lib/cli.js:141784:12)
-      at Object.onceWrapper (node:events:627:28)
-      at IncomingMessage.emit (node:events:525:35)
-      at endReadableNT (node:internal/streams/readable:1359:12)
-      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+  SyntaxError: F:\tauri-mobile\package.json: Unexpected token < in JSON at position 394
+      at JSON.parse (<anonymous>)
+      at C:\Users\Ludovic\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\Ludovic\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\Ludovic\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
 
 npm manifest: 
   {
@@ -35,7 +30,8 @@ npm manifest:
     "scripts": {
       "dev": "vite",
       "build": "tsc && vite build",
-      "preview": "vite preview"
+      "preview": "vite preview",
+      "tauri": "tauri"
     },
     "dependencies": {
       "@emotion/react": "^11.10.0",
@@ -43,6 +39,13 @@ npm manifest:
       "@mui/icons-material": "^5.8.4",
       "@mui/material": "^5.10.1",
       "@mui/styles": "^5.9.3",
+  <<<<<<< HEAD
+      "@tauri-apps/cli": "github:tauri-apps/tauri#next" ,
+  =======
+      "@tauri-apps/cli": "github:tauri-apps/tauri#feat/mobile-dev", 
+      "@tauri-apps/api": "github:tauri-apps/tauri#feat/mobile-dev",
+  >>>>>>> 714250557d542888511a5dcf6ed7faa5efce83ad
+      "@types/react-router-dom": "^5.3.3",
       "prop-types": "^15.8.1",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
@@ -53,6 +56,7 @@ npm manifest:
       "@types/react": "^18.0.17",
       "@types/react-dom": "^18.0.6",
       "@vitejs/plugin-react": "^2.0.1",
+      "husky": "^8.0.1",
       "typescript": "^4.6.4",
       "vite": "^3.0.7"
     }
@@ -588,6 +592,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
     integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
   
+  "@types/history@^4.7.11":
+    version "4.7.11"
+    resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.11.tgz#56588b17ae8f50c53983a524fc3cc47437969d64"
+    integrity sha512-qjDJRrmvBMiTx+jyLxvLfJU7UznFuokDv4f3WRuriHKERccVpFU+8XMQUAbDzoiJCsmexxRExQeMwwCdamSKDA==
+  
   "@types/parse-json@^4.0.0":
     version "4.0.0"
     resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
@@ -610,6 +619,23 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/react-is/-/react-is-17.0.3.tgz#2d855ba575f2fc8d17ef9861f084acc4b90a137a"
     integrity sha512-aBTIWg1emtu95bLTLx0cpkxwGW3ueZv71nE2YFBpL8k/z5czEW8yYpOo8Dp+UUAFAtKwNaOsh/ioSeQnWlZcfw==
     dependencies:
+      "@types/react" "*"
+  
+  "@types/react-router-dom@^5.3.3":
+    version "5.3.3"
+    resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.3.3.tgz#e9d6b4a66fcdbd651a5f106c2656a30088cc1e83"
+    integrity sha512-kpqnYK4wcdm5UaWI3fLcELopqLrHgLqNsdpHauzlQktfkHL3npOSwtj1Uz9oKBAzs7lFtVkV8j83voAz2D8fhw==
+    dependencies:
+      "@types/history" "^4.7.11"
+      "@types/react" "*"
+      "@types/react-router" "*"
+  
+  "@types/react-router@*":
+    version "5.1.18"
+    resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-5.1.18.tgz#c8851884b60bc23733500d86c1266e1cfbbd9ef3"
+    integrity sha512-YYknwy0D0iOwKQgz9v8nOzt2J6l4gouBmDnWqUUznltOTaon+r8US8ky8HvN0tXvc38U9m6z/t2RsVsnd1zM0g==
+    dependencies:
+      "@types/history" "^4.7.11"
       "@types/react" "*"
   
   "@types/react-transition-group@^4.4.5":
