@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
-import Drawer from '@mui/material/Drawer';
+import Drawer from '@mui/material/Drawer'
+import useTheme from '@mui/material/styles/useTheme';
 import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import NavItem from 'components/Navitem';
 import PropTypes from 'prop-types';
+//import theme from 'theme/index';
 import { useLocation } from 'react-router-dom';
 
 const items = [
@@ -16,7 +18,8 @@ const items = [
 const Sidebar = (props: any) => {
   const { open, onClose } = props;
   const location = useLocation();
-  const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up('lg'), {
+  const theme = useTheme();
+  const lgUp = useMediaQuery(theme.breakpoints.up('lg'), {
     defaultMatches: true,
     noSsr: false
   });
