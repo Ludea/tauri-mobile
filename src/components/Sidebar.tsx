@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import Drawer from '@mui/material/Drawer';
+import useTheme from '@mui/material/styles/useTheme';
 import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import NavItem from 'components/Navitem';
@@ -16,11 +17,12 @@ const items = [
 const Sidebar = (props: any) => {
   const { open, onClose } = props;
   const location = useLocation();
-  const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up('lg'), {
+  const theme = useTheme();
+  const lgUp = useMediaQuery(theme.breakpoints.up('lg'), {
     defaultMatches: true,
     noSsr: false
   });
- 
+
   useEffect(() => {
     if (open) {
         onClose?.();
@@ -49,7 +51,7 @@ const Sidebar = (props: any) => {
       </Box>
     </>
   );
- 
+
   if (lgUp) {
     return (
       <Drawer
