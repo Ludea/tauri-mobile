@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview", 
-    "tauri": "tauri" 
+    "preview": "vite preview",
+    "tauri": "tauri"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -16,7 +16,7 @@
     "@mui/material": "^5.10.1",
     "@mui/styles": "^5.9.3",
     "@tauri-apps/cli": "github:tauri-apps/tauri#feat/mobile-dev", 
-    "@tauri-apps/api": "github:tauri-apps/tauri#feat/mobile-dev", 
+    "@tauri-apps/api": "github:tauri-apps/tauri#feat/mobile-dev",
     "@types/react-router-dom": "^5.3.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
