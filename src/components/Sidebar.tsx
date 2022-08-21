@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import Drawer from '@mui/material/Drawer';
+import Drawer from '@mui/material/Drawer'
 import useTheme from '@mui/material/styles/useTheme';
 import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';

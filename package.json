@@ -15,7 +15,12 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.10.1",
     "@mui/styles": "^5.9.3",
+<<<<<<< HEAD
     "@tauri-apps/cli": "github:tauri-apps/tauri#next" ,
+=======
+    "@tauri-apps/cli": "github:tauri-apps/tauri#feat/mobile-dev", 
+    "@tauri-apps/api": "github:tauri-apps/tauri#feat/mobile-dev",
+>>>>>>> 714250557d542888511a5dcf6ed7faa5efce83ad
     "@types/react-router-dom": "^5.3.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -27,6 +32,7 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
+    "husky": "^8.0.1",
     "typescript": "^4.6.4",
     "vite": "^3.0.7"
   }
