@@ -32,8 +32,8 @@ jobs:
       uses: actions-rs/toolchain@v1
       with:
         toolchain: stable
-    - name: install app dependencies and build it
-      run: yarn && yarn build
+    - name: install app dependencies 
+      run: yarn 
     - name: build 
       run: yarn tauri android build
     - name: Gradle
