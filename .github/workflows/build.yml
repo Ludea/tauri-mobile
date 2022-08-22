@@ -24,6 +24,14 @@ jobs:
       with:
         ndk-version: r22b
         add-to-path: false
+    - name: setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16
+    - name: install Rust stable
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
     - name: install app dependencies and build it
       run: yarn && yarn build
     - name: build 
@@ -42,6 +50,14 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
+    - name: setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16
+    - name: install Rust stable
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
     - name: install app dependencies and build it
       run: yarn && yarn build
     - name: build 
