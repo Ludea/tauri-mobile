@@ -10,4 +10,4 @@ target/
 .DS_Store
 
 # node mdoules
-node_modules
+/node_modules
