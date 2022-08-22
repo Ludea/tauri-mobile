@@ -33,7 +33,7 @@ jobs:
       with:
         toolchain: stable
     - name: install app dependencies 
-      run: yarn 
+      run:  yarn add husky@7 --dev && yarn dlx husky-init --yarn2 && npm exec -- github:typicode/husky-4-to-7 --remove-v4-config && yarn 
     - name: build 
       run: yarn tauri android build
     - name: Gradle
