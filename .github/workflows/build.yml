@@ -17,7 +17,14 @@ jobs:
     - name: install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 patchelf 
+        sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0
+    - name: build tauri
+      run: |
+        git clone https://github.com/tauri-apps/tauri
+        git checkout next
+        cd tauri/tooling/cli/node
+        yarn
+        yarn build
     - name: Setup NDK 
       uses: nttld/setup-ndk@v1
       id: setup-ndk
