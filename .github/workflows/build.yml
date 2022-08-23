@@ -42,7 +42,9 @@ jobs:
     - name: install app dependencies 
       run:  yarn && yarn build
     - name: Build apk
-      run: yarn tauri android build
+      run: |
+        ls
+        yarn tauri android build
     - uses: actions/upload-artifact@v3
       with:
         name: apks
