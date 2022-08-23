@@ -38,7 +38,7 @@
         "signingIdentity": null
       },
       "iOS": {
-        "developmentTeam" = "foo"
+        "developmentTeam": "foo"
       },
       "resources": [],
       "shortDescription": "",
