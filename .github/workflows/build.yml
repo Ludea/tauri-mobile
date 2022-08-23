@@ -41,10 +41,10 @@ jobs:
         toolchain: stable
     - name: install app dependencies 
       run:  yarn && yarn build
+    - name: Init apk
+      run: yarn tauri android init
     - name: Build apk
-      run: |
-        ls
-        yarn tauri android build
+      run: yarn tauri android build
     - uses: actions/upload-artifact@v3
       with:
         name: apks
