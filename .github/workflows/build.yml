@@ -83,7 +83,7 @@ jobs:
     - name: install app dependencies and build it
       run: yarn && yarn build
     - name: Init Xcode Project
-      run: yarn tauri android init
+      run: yarn tauri ios init
     - name: Build IOS app
       run: yarn tauri ios build
 
