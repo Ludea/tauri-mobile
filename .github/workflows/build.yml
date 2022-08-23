@@ -22,7 +22,7 @@ jobs:
       run: |
         git clone https://github.com/tauri-apps/tauri
         cd tauri && git checkout next
-        cd tauri/tooling/cli/node
+        cd tooling/cli/node
         yarn
         yarn build
     - name: Setup NDK 
