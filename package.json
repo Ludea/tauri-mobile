@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "tauri": "node ../tauri/tooling/cli/node/tauri.js" 
+    "tauri": "node tauri/tooling/cli/node/tauri.js" 
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
