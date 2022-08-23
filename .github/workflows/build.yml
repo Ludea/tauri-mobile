@@ -40,7 +40,7 @@ jobs:
       with:
         toolchain: stable
     - name: install app dependencies 
-      run:  yarn && build
+      run:  yarn && yarn build
     - name: build 
       run: yarn tauri android build
     - name: Gradle
