@@ -50,7 +50,7 @@
       "csp": null
     },
     "iOS": {
-      "developmentTeam": "foo",  
+      "developmentTeam": "foo" 
     },
     "updater": {
       "active": false
