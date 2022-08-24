@@ -28,7 +28,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.ludea.dev",
+      "identifier": "com.ludea.hello",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
