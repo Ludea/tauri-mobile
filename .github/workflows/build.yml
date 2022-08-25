@@ -52,6 +52,7 @@ jobs:
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
         PKG_CONFIG_SYSROOT_DIR: /usr/x86_64-w64-mingw32/
+        OPENSSL_DIR: /usr/bin/openssl
     - uses: actions/upload-artifact@v3
       with:
         name: apks
