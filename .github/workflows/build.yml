@@ -51,7 +51,7 @@ jobs:
       run: yarn tauri android build
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-        OPENSSL_DIR: /usr/lib/x86_64-linux-gnu/
+        OPENSSL_DIR: /usr/bin/openssl
     - uses: actions/upload-artifact@v3
       with:
         name: apks
