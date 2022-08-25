@@ -22,6 +22,8 @@ jobs:
       run: |
         git clone https://github.com/tauri-apps/tauri
         cd tauri && git checkout next
+        cd core/tauri && cargo update
+        cd .. && cd .. 
         cd tooling/cli/node
         yarn
         yarn build
