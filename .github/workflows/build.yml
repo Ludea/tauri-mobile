@@ -50,6 +50,7 @@ jobs:
     - name: ls
       run: |
         ls src-tauri/gen/android/hello
+        cat src-tauri/gen/android/hello/build.gradle.kts
     - name: Build apk
       run: yarn tauri android build
       env:
