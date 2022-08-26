@@ -11,6 +11,10 @@ const items = [
   {
     href: '/',
     title: 'Index'
+  },
+  {
+    href: "/chat",
+    title: "chat"
   }
 ]
 
