@@ -52,7 +52,7 @@ jobs:
         ls src-tauri/gen/android/hello
         cat src-tauri/gen/android/hello/build.gradle.kts
     - name: Gradle
-      run: cd gen/android/hello && ./gradlew build
+      run: cd src-tauri/gen/android/hello && ./gradlew build
     - name: Build apk
       run: yarn tauri android build
       env:
