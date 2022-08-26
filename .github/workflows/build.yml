@@ -49,7 +49,7 @@ jobs:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - name: ls
       run: |
-        ls src-tauri/gen/android
+        ls src-tauri/gen/android/hello
     - name: Build apk
       run: yarn tauri android build
       env:
