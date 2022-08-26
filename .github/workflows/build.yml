@@ -51,10 +51,8 @@ jobs:
       run: |
         ls src-tauri/gen/android/hello
         cat src-tauri/gen/android/hello/build.gradle.kts
-    - name: Gradle
-      run: cd src-tauri/gen/android/hello && ./gradlew build
     - name: Build apk
-      run: yarn tauri android build
+      run: yarn tauri android build --open
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - uses: actions/upload-artifact@v3
