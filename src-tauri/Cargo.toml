@@ -33,3 +33,7 @@ codegen-units = 1
 lto = true
 incremental = false
 opt-level = "s"
+
+[patch.crates-io]
+wry = { git = "https://github.com/tauri-apps/wry", branch = "dev" }
+tao = { git = "https://github.com/tauri-apps/tao", branch = "dev" }
