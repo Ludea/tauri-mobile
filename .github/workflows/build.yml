@@ -37,7 +37,7 @@ jobs:
       uses: nttld/setup-ndk@v1
       id: setup-ndk
       with:
-        ndk-version: r22b
+        ndk-version: r25b
         add-to-path: false
     - name: Setup target
       run: rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
