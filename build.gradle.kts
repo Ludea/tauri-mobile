@@ -1,8 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-   ext {
-        ndkVersion = "25.1.8937393"
-    }
+   android {
+        ndkPath = $NDK_HOME
+    } 
     repositories {
         google()
         mavenCentral()
