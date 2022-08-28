@@ -49,9 +49,9 @@ jobs:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - name: ls
       run: |
-        ls src-tauri/gen/android/hello
-        cat src-tauri/gen/android/hello/build.gradle.kts
-        rm src-tauri/gen/android/hello/build.gradle.kts
+        ls src-tauri/gen/android/hello/app
+        cat src-tauri/gen/android/hello/app/build.gradle.kts
+        rm src-tauri/gen/android/hello/app/build.gradle.kts
         mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
     - name: Build apk
       run: yarn tauri android build
