@@ -49,9 +49,6 @@
     "security": {
       "csp": null
     },
-    "iOS": {
-      "developmentTeam": "foo" 
-    },
     "updater": {
       "active": false
     },
