@@ -47,11 +47,8 @@ jobs:
       run: yarn tauri android init
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-    - name: ls
+    - name: Replace build.gradle.kts
       run: |
-        ls /opt/hostedtoolcache/ndk/r25b/x64
-        ls src-tauri/gen/android/hello/app
-        cat src-tauri/gen/android/hello/app/build.gradle.kts
         rm src-tauri/gen/android/hello/app/build.gradle.kts
         mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
       env:
