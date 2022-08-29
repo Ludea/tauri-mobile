@@ -26,10 +26,10 @@ jobs:
       uses: actions-rs/toolchain@v1
       with:
         toolchain: stable
-    - name: Build tauri next branch
+    - name: Build tauri timeout branch
       run: |
         git clone https://github.com/tauri-apps/tauri
-        cd tauri && git checkout next
+        cd tauri && git checkout feat/timeout
         cd tooling/cli/node
         yarn
         yarn build
