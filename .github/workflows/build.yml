@@ -49,7 +49,7 @@ jobs:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - name: ls
       run: |
-        ls $NDK_HOME 
+        ls /opt/hostedtoolcache/ndk/r25b/x64
         ls src-tauri/gen/android/hello/app
         cat src-tauri/gen/android/hello/app/build.gradle.kts
         rm src-tauri/gen/android/hello/app/build.gradle.kts
