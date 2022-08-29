@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    ndk = "25.1.8937393"
+    ndkVersion = "25.1.8937393"
     compileSdk = 33
     defaultConfig {
         manifestPlaceholders["usesCleartextTraffic"] = "false"
