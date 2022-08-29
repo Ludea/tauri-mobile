@@ -12,11 +12,11 @@ name = "hello-desktop"
 path = "src/main.rs"
 
 [build-dependencies]
-tauri-build = { git = "https://github.com/tauri-apps/tauri", branch = "next" }
+tauri-build = { git = "https://github.com/tauri-apps/tauri", branch = "feat/timeout" }
 
 [dependencies]
 anyhow = "1.0.56"
-tauri = { git = "https://github.com/tauri-apps/tauri", branch = "next", features = ["native-tls-vendored"] }
+tauri = { git = "https://github.com/tauri-apps/tauri", branch = "feat/timeout", features = ["native-tls-vendored"] }
 
 [target.'cfg(any(target_os = "android", target_os = "ios"))'.dependencies]
 log = "0.4"
