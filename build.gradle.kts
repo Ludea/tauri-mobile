@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    ndkVersion = "25.1.8937393"
+    ndkPath = "/opt/hostedtoolcache/ndk/r25b/x64"
     compileSdk = 33
     defaultConfig {
         manifestPlaceholders["usesCleartextTraffic"] = "false"
