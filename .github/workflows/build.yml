@@ -54,7 +54,7 @@ jobs:
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - name: Build apk
-      run: yarn tauri android build -vv 
+      run: yarn tauri android build
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - uses: actions/upload-artifact@v3
