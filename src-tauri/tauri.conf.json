@@ -13,9 +13,6 @@
     "allowlist": {
       "all": false
     },
-    "iOS" : {
-      "developmentTeam" : "foo"
-    }, 
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
@@ -23,6 +20,9 @@
       "deb": {
         "depends": []
       },
+      "iOS" : {
+        "developmentTeam": "foo"
+      },  
       "externalBin": [],
       "icon": [
         "icons/32x32.png",
