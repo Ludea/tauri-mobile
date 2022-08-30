@@ -13,6 +13,9 @@
     "allowlist": {
       "all": false
     },
+    "iOS" : {
+      "developmentTeam" : "foo"
+    }, 
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
