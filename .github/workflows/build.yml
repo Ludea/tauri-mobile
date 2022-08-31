@@ -26,6 +26,10 @@ jobs:
       uses: actions-rs/toolchain@v1
       with:
         toolchain: stable
+    - uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
     - name: Build tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
@@ -75,6 +79,10 @@ jobs:
       uses: actions-rs/toolchain@v1
       with:
         toolchain: stable
+    - uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
     - name: Build tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
