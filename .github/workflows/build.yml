@@ -68,7 +68,7 @@ jobs:
           gen/android/hello/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk
           gen/android/hello/app/build/outputs/apk/arm64/debug/app-arm64-debug.apk 
   Android-Windows:
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
     - uses: actions/checkout@v3
     - name: setup node
