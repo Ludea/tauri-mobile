@@ -10,7 +10,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  Android:
+  Android-Ubuntu:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
@@ -63,6 +63,56 @@ jobs:
         path: |
           gen/android/hello/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk
           gen/android/hello/app/build/outputs/apk/arm64/debug/app-arm64-debug.apk 
+  Android-Windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: install Rust stable
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+    - name: Build tauri next branch
+      run: |
+        git clone https://github.com/tauri-apps/tauri
+        cd tauri && git checkout next
+        cd tooling/cli/node
+        yarn
+        yarn build
+    - name: Setup NDK 
+      uses: nttld/setup-ndk@v1
+      id: setup-ndk
+      with:
+        ndk-version: r25b
+        add-to-path: false
+    - name: Setup target
+      run: rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
+    - name: install app dependencies 
+      run:  yarn && yarn build
+    - name: Init Android Studio Project
+      run: yarn tauri android init
+      env:
+        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+    - name: Replace build.gradle.kts
+      run: |
+        rm src-tauri/gen/android/hello/app/build.gradle.kts
+        mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
+      env:
+        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+    - name: Build apk
+      run: yarn tauri android build
+      env:
+        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+    - uses: actions/upload-artifact@v3
+      with:
+        name: apks
+        path: |
+          gen/android/hello/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk
+          gen/android/hello/app/build/outputs/apk/arm64/debug/app-arm64-debug.apk 
+
   IOS:
     runs-on: macos-latest
     steps:
