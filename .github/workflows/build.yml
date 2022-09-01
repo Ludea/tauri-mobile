@@ -117,7 +117,7 @@ jobs:
     - name: Build apk 
       run: yarn tauri android build
       env:
-        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+        NDK_HOME: C:/hostedtoolcache/windows/ndk/r25b/x64
     - uses: actions/upload-artifact@v3
       with:
         name: apks
