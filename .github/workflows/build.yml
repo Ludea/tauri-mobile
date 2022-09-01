@@ -113,7 +113,7 @@ jobs:
         rm src-tauri/gen/android/hello/app/build.gradle.kts
         mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
       env:
-        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+        NDK_HOME: "${{ steps.setup-ndk.outputs.ndk-path }}"
     - name: Build apk 
       run: yarn tauri android build
       env:
