@@ -30,6 +30,11 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
+    - uses: cygwin/cygwin-install-action@master
+      with:
+       packages: >-
+            perl
+       platform: arm64
     - name: Build tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
