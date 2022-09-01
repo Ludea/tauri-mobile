@@ -65,8 +65,7 @@ jobs:
       with:
         name: apks
         path: |
-          gen/android/hello/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk
-          gen/android/hello/app/build/outputs/apk/arm64/debug/app-arm64-debug.apk 
+          gen/android/hello/app/build/outputs/apk/**/release/*.apk
   Android-Windows:
     runs-on: windows-2022
     steps:
