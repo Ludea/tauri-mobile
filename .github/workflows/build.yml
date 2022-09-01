@@ -96,11 +96,7 @@ jobs:
         ndk-version: r25b
         add-to-path: false
     - name: Setup target
-      run: rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
-    - name: Install OpenSSL on Windows (vcpkg)
-      run: |
-        c:\vcpkg\vcpkg install --recurse openssl --triplet x64-windows
-      shell: cmd
+      run: rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android   
     - name: install app dependencies 
       run:  yarn && yarn build
     - name: Init Android Studio Project
