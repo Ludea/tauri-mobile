@@ -84,7 +84,7 @@ jobs:
         java-version: '17'
     - uses: cygwin/cygwin-install-action@master
       with:
-        install: >-
+        packages: >-
           perl
     - name: Build tauri next branch
       run: |
