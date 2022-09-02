@@ -82,9 +82,8 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
-    - uses: msys2/setup-msys2@v2
+    - uses: cygwin/cygwin-install-action@master
       with:
-        update: true
         install: >-
           perl
     - name: Build tauri next branch
