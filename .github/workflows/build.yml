@@ -82,11 +82,10 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
-    - uses: cygwin/cygwin-install-action@master
+    - uses: shogo82148/actions-setup-perl@v1
       with:
-       packages: >-
-            perl
-       platform: x86_64
+        perl-version: '5.32'
+        distribution: strawberry
     - name: Build tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
