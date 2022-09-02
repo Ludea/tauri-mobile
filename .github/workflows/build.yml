@@ -114,7 +114,8 @@ jobs:
         rm src-tauri/gen/android/hello/app/build.gradle.kts
         mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
       env:
-        NDK_HOME: "${{ steps.setup-ndk.outputs.ndk-path }}"
+        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+        OPENSSL_SRC_DIR: C:\hostedtoolcache\windows\strawberry-per\5.32.1\x64\perl\bin\perl
     - name: Build apk 
       run: yarn tauri android build
       env:
