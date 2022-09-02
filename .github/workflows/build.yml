@@ -82,11 +82,12 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
-    - name: Set up Cygwin
-      uses: egor-tensin/setup-cygwin@v3
+    - uses: shogo82148/actions-setup-perl@v1
       with:
-        platform: x64
-        packages: perl
+        perl-version: '5.32'
+        distribution: strawberry
+    - name: Use strawberry perl
+      run: echo ::set-env name=OPENSSL_SRC_PERL::C:/Strawberry/perl/bin/perl
     - name: Build tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
