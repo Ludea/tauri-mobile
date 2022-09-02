@@ -87,7 +87,6 @@ jobs:
       with:
         platform: x64
         packages: perl
-        hardlinks: 1
     - name: Build tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
