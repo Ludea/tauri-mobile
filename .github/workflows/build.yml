@@ -113,7 +113,7 @@ jobs:
         mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-        OPENSSL_SRC_DIR: C:\hostedtoolcache\windows\strawberry-per\5.32.1\x64\perl\bin\perl
+        TARGET_CC: C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe
     - name: Build apk 
       run: yarn tauri android build
       env:
