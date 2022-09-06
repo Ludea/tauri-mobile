@@ -112,10 +112,10 @@ jobs:
         rm src-tauri/gen/android/hello/app/build.gradle.kts
         mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
     - name: Build apk 
-      run: yarn tauri android build --target=aarch64
-      env:
+      run: yarn tauri android build # --target=aarch64
+  #    env:
       #  NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-        CC_aarch64-linux-android: C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe
+   #     CC_aarch64-linux-android: C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe
     - uses: actions/upload-artifact@v3
       with:
         name: apks
