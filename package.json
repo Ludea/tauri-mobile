@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "tauri": "cross-env CC_aarch64-linux-android=C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe CC_AARCH64-LINUX-ANDROID=C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe NDK_HOME=C:/hostedtoolcache/windows/ndk/r25b/x64/ TARGET_CC=C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe node tauri/tooling/cli/node/tauri.js"
+    "tauri": "cross-env TARGET_CC=C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe node tauri/tooling/cli/node/tauri.js"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
