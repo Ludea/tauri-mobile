@@ -104,7 +104,7 @@ jobs:
     - name: install app dependencies 
       run:  yarn && yarn build
     - name: set Target_CC
-      run: setx TARGET_CC " C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe" /M
+      run: setx TARGET_CC "C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe" /M
     - name: echo env var
       run: echo $Env:TARGET_CC
     - name: Init Android Studio Project
@@ -120,7 +120,7 @@ jobs:
     - name: Build apk 
       run: yarn tauri android build # --target=aarch64
       env:
-      #  NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
         CC_aarch64-linux-android: C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe
     - uses: actions/upload-artifact@v3
       with:
