@@ -104,9 +104,9 @@ jobs:
     - name: install app dependencies 
       run:  yarn && yarn build
     - name: set Target_CC
-      run: setx TARGET_CC "C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe" /M
+      run: echo "TARGET_CC=C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe" >> $GITHUB_ENV
     - name: echo env var
-      run: echo $Env:TARGET_CC
+      run: echo $TARGET_CC
     - name: Init Android Studio Project
       run: yarn tauri android init
       env:
