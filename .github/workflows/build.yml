@@ -103,10 +103,6 @@ jobs:
       run: rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android   
     - name: install app dependencies 
       run:  yarn && yarn build
-    - name: set Target_CC
-      run: echo "TARGET_CC=C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe" >> $GITHUB_ENV
-    - name: echo env var
-      run: echo $TARGET_CC
     - name: Init Android Studio Project
       run: yarn tauri android init
       env:
