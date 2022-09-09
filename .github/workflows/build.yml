@@ -111,6 +111,7 @@ jobs:
       run: yarn tauri android init
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+        TARGET_CC: "C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe"
     - name: Replace build.gradle.kts
       run: |
         rm src-tauri/gen/android/hello/app/build.gradle.kts
