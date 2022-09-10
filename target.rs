@@ -1,24 +1,3 @@
-
-tauri-apps
-/
-cargo-mobile
-Public
-forked from BrainiumLLC/cargo-mobile
-Code
-Issues
-Pull requests
-1
-Discussions
-Actions
-Projects
-Security
-Insights
-cargo-mobile/src/android/target.rs
-@amrbashir
-amrbashir feat: enhance wry android template (#32)
-…
- 4 contributors
-358 lines (330 sloc)  10.5 KB
 use super::{
     config::{Config, Metadata},
     env::Env,
