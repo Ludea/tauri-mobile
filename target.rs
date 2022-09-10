@@ -266,7 +266,7 @@ fn compile_lib(
                     .map_err(CompileLibError::MissingTool)?
                     .display()
                     .to_string()
-                    .replace("\\", "/"),
+                    .replace("\\", "/")
                     .replace("\", "/"),
             )
             .with_env_var(
