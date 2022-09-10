@@ -267,7 +267,7 @@ fn compile_lib(
                     .display()
                     .to_string()
                     .replace("\\", "/")
-                    .replace("\", "/"),
+                    .replace("\", "/");
             )
             .with_env_var(
                 "TARGET_CXX",
