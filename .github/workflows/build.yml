@@ -95,7 +95,7 @@ jobs:
       with:
         packages: >-
           perl
-     - name: clone cargo-mobile and tauri next branch
+    - name: clone cargo-mobile and tauri next branch
       run: |
         git clone https://github.com/tauri-apps/cargo-mobile
         git clone https://github.com/tauri-apps/tauri
