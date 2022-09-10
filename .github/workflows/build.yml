@@ -30,18 +30,20 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
-    - name: pull cargo-mobile
+    - name: clone cargo-mobile and tauri next branch
       run: |
         git clone https://github.com/tauri-apps/cargo-mobile
-    - name: Copy Cargo.toml 
+        git clone https://github.com/tauri-apps/tauri
+        cd tauri && git checkout next
+    - name: Copy some files
       run: |
         rm tauri/tooling/cli/Cargo.toml
         mv Cargo.toml tauri/tooling/cli/Cargo.toml
+        rm cargo-mobile/src/android/target.rs
+        mv target.rs cargo-mobile/src/android/target.rs
     - name: Build tauri next branch
       run: |
-        git clone https://github.com/tauri-apps/tauri
-        cd tauri && git checkout next
-        cd tooling/cli/node
+        cd tauri/tooling/cli/node
         yarn
         yarn build
     - name: Setup NDK 
