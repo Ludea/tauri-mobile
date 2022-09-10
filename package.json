@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "tauri": "node tauri/tooling/cli/node/tauri.js"
+    "tauri": "set TAURI_CC_AARCH64-LINUX-ANDROID=C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe&& node tauri/tooling/cli/node/tauri.js"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
