@@ -33,6 +33,10 @@ jobs:
     - name: pull cargo-mobile
       run: |
         git clone https://github.com/tauri-apps/cargo-mobile
+    - name: Copy Cargo.toml 
+      run: |
+        rm tauri/tooling/cli/Cargo.toml
+        mv Cargo.toml tauri/tooling/cli/Cargo.toml
     - name: Build tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
