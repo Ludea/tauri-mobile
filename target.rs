@@ -262,7 +262,7 @@ fn compile_lib(
             .with_env_var(
                 "TARGET_CC",
                 env.ndk
-                    .compiler_path(ndk::Compiler::Clang, self.clang_triple(), min_sdk_version)
+                    .compiler_path(ndk::Compiler::Clang, "/clang.exe", min_sdk_version) //self.clang_triple(), min_sdk_version)
                     .map_err(CompileLibError::MissingTool)?
                     .display()
                     .to_string()
