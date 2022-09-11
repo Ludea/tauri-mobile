@@ -260,13 +260,13 @@ fn compile_lib(
                     .map_err(CompileLibError::MissingTool)?,
             )
             .with_env_var(
-                "TARGET_CC",
-                env.ndk
+                "TARGET_CC", "C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe" 
+             /*   env.ndk
                     .compiler_path(ndk::Compiler::Clang, "/clang.exe", min_sdk_version) //self.clang_triple(), min_sdk_version)
                     .map_err(CompileLibError::MissingTool)?
                     .display()
                     .to_string()
-                    .replace("\\", "/"), 
+                    .replace("\\", "/"), */
             )
             .with_env_var(
                 "TARGET_CXX",
