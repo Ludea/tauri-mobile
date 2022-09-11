@@ -95,6 +95,7 @@ jobs:
       with:
         packages: >-
           perl
+          openssl
     - name: clone cargo-mobile and tauri next branch
       run: |
         git clone https://github.com/tauri-apps/cargo-mobile
