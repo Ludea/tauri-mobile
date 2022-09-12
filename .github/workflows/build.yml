@@ -143,7 +143,7 @@ jobs:
           gen/android/hello/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk
           gen/android/hello/app/build/outputs/apk/arm64/debug/app-arm64-debug.apk 
           
-Android-Windows-MSYS:
+  Android-Windows-MSYS:
     runs-on: windows-2022
     steps:
     - uses: actions/checkout@v3
@@ -216,8 +216,6 @@ Android-Windows-MSYS:
         path: |
           gen/android/hello/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk
           gen/android/hello/app/build/outputs/apk/arm64/debug/app-arm64-debug.apk 
-
-
   IOS:
     runs-on: macos-latest
     steps:
