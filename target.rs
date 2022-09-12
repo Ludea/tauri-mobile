@@ -262,7 +262,7 @@ fn compile_lib(
                     .ar_path(self.triple)
                     .map_err(CompileLibError::MissingTool)?,
             )
-            .with_args("--openssldir=/usr/local/ssl".to_string().as_deref())
+            .with_args(&["--openssldir=/usr/local/ssl"])
             .with_env_var(
                 "TARGET_CC", "C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe" 
              /*   env.ndk
