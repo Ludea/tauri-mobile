@@ -200,16 +200,10 @@ jobs:
         mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
     #    rm C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/aarch64-linux-android24-clang.cmd
    #     mv aarch64-linux-android24-clang.cmd C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/aarch64-linux-android24-clang.cmd
-    - shell: msys2 {0}
-      run: |
-        uname -a
-        yarn tauri android build
+    - name: Build apk 
+      run: msys2 -c "yarn tauri android build"
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-   # - name: Build apk 
-   #   run: yarn tauri android build
-    #  env:
-     #   NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - uses: actions/upload-artifact@v3
       with:
         name: apks
