@@ -242,6 +242,9 @@ fn compile_lib(
         // Force color, since gradle would otherwise give us uncolored output
         // (which Android Studio makes red, which is extra gross!)
         let color = if force_color { "always" } else { "auto" };
+        println!("Clang : {:?}", ndk::Compiler::Clang );
+        println!("target : {:?}", self.clang_triple() );
+        println!("ndk : {:?}", min_sdk_version );
         CargoCommand::new(mode.as_str())
             .with_verbose(noise_level.pedantic())
             .with_package(Some(config.app().name()))
@@ -268,7 +271,7 @@ fn compile_lib(
                     .to_string()
                     .replace("\\", "/"), */
             )
-            .with_args("--openssldir=/usr/local/ssl") 
+            .with_args("--openssldir=/usr/local/ssl".chars()) 
             .with_env_var(
                 "TARGET_CXX",
                 env.ndk
