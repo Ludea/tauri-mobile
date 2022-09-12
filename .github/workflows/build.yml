@@ -142,6 +142,81 @@ jobs:
         path: |
           gen/android/hello/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk
           gen/android/hello/app/build/outputs/apk/arm64/debug/app-arm64-debug.apk 
+          
+Android-Windows-MSYS:
+    runs-on: windows-2022
+    steps:
+    - uses: actions/checkout@v3
+    - name: setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: install Rust stable
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+    - uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+    - uses: msys2/setup-msys2@v2
+      with:
+        update: true
+        install: >-
+          perl
+    - name: clone cargo-mobile and tauri next branch
+      run: |
+        git clone https://github.com/tauri-apps/cargo-mobile
+        git clone https://github.com/tauri-apps/tauri
+        cd tauri && git checkout next
+    - name: Copy some files
+      run: |
+        rm tauri/tooling/cli/Cargo.toml
+        mv Cargo.toml tauri/tooling/cli/Cargo.toml
+        rm cargo-mobile/src/android/target.rs
+        mv target.rs cargo-mobile/src/android/target.rs
+    - name: Build tauri next branch
+      run: |
+        cd tauri/tooling/cli/node
+        yarn
+        yarn build
+    - name: Setup NDK 
+      uses: nttld/setup-ndk@v1
+      id: setup-ndk
+      with:
+        ndk-version: r25b
+        add-to-path: false
+    - name: Setup target
+      run: rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android   
+    - name: install app dependencies 
+      run:  yarn && yarn build
+    - name: Init Android Studio Project
+      run: yarn tauri android init
+      env:
+        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+    - name: Replace build.gradle.kts
+      run: |
+        rm src-tauri/gen/android/hello/app/build.gradle.kts
+        mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
+    #    rm C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/aarch64-linux-android24-clang.cmd
+   #     mv aarch64-linux-android24-clang.cmd C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/aarch64-linux-android24-clang.cmd
+    - shell: msys2 {0}
+      run: |
+        uname -a
+        yarn tauri android build
+      env:
+        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+   # - name: Build apk 
+   #   run: yarn tauri android build
+    #  env:
+     #   NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+    - uses: actions/upload-artifact@v3
+      with:
+        name: apks
+        path: |
+          gen/android/hello/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk
+          gen/android/hello/app/build/outputs/apk/arm64/debug/app-arm64-debug.apk 
+
 
   IOS:
     runs-on: macos-latest
