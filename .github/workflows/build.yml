@@ -70,7 +70,6 @@ jobs:
       run: yarn tauri android build
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-        OPENSSL_SRC_PERL: "C:/cygwin/bin/perl.exe"
     - uses: actions/upload-artifact@v3
       with:
         name: apks
@@ -141,6 +140,7 @@ jobs:
       run: yarn tauri android build
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+        OPENSSL_SRC_PERL: "C:/cygwin/bin/perl.exe"
     - uses: actions/upload-artifact@v3
       with:
         name: apks
