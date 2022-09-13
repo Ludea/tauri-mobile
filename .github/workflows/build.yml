@@ -95,7 +95,10 @@ jobs:
       with:
         packages: >-
           perl
-          openssl
+    - name: ls
+      run: |
+        ls C:\cygwin\bin
+        ls C:\cygwin-packages
     - name: clone cargo-mobile and tauri next branch
       run: |
         git clone https://github.com/tauri-apps/cargo-mobile
@@ -132,7 +135,8 @@ jobs:
         mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
     #    rm C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/aarch64-linux-android24-clang.cmd
    #     mv aarch64-linux-android24-clang.cmd C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/aarch64-linux-android24-clang.cmd
-    - name: Build apk 
+    - name: Build apk
+      shell: powershell
       run: yarn tauri android build
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
