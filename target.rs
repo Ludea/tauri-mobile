@@ -272,6 +272,7 @@ fn compile_lib(
                     .replace("\\", "/"), */
             )
             .with_env_var("OPENSSL_DIR", "/usr/local/ssl".to_string().replace("\\", ""))
+            .with_env_var("DOPENSSLDIR", "/usr/local/ssl")
             .with_env_var(
                 "TARGET_CXX",
                 env.ndk
