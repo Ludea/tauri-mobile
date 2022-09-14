@@ -108,8 +108,6 @@ jobs:
       run: |
         rm tauri/tooling/cli/Cargo.toml
         mv Cargo.toml tauri/tooling/cli/Cargo.toml
-        rm cargo-mobile/src/android/target.rs
-        mv target.rs cargo-mobile/src/android/target.rs
     - name: Build tauri next branch
       run: |
         cd tauri/tooling/cli/node
@@ -133,8 +131,6 @@ jobs:
       run: |
         rm src-tauri/gen/android/hello/app/build.gradle.kts
         mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
-    #    rm C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/aarch64-linux-android24-clang.cmd
-   #     mv aarch64-linux-android24-clang.cmd C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/aarch64-linux-android24-clang.cmd
     - name: Build apk
       run: C:\cygwin\bin\bash -c "yarn tauri android build"
       env:
