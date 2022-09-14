@@ -239,6 +239,34 @@ fn compile_lib(
             }
         }
 
+        #[cfg(unix)]
+        let clang_path = env
+            .ndk
+            .compiler_path(ndk::Compiler::Clang, self.clang_triple(), min_sdk_version)
+            .map_err(CompileLibError::MissingTool)?;
+        #[cfg(unix)]
+        let clangxx_path = env
+            .ndk
+            .compiler_path(ndk::Compiler::Clangxx, self.clang_triple(), min_sdk_version)
+            .map_err(CompileLibError::MissingTool)?;
+
+        #[cfg(windows)]
+        let clang_path = env
+            .ndk
+            .compiler_path(ndk::Compiler::Clang, self.clang_triple(), min_sdk_version)
+            .map_err(CompileLibError::MissingTool)?
+            .display()
+            .to_string()
+            .replace("\\", "/");
+        #[cfg(windows)]
+        let clangxx_path = env
+            .ndk
+            .compiler_path(ndk::Compiler::Clangxx, self.clang_triple(), min_sdk_version)
+            .map_err(CompileLibError::MissingTool)?
+            .display()
+            .to_string()
+            .replace("\\", "/");
+
         // Force color, since gradle would otherwise give us uncolored output
         // (which Android Studio makes red, which is extra gross!)
         let color = if force_color { "always" } else { "auto" };
@@ -262,23 +290,8 @@ fn compile_lib(
                     .ar_path(self.triple)
                     .map_err(CompileLibError::MissingTool)?,
             )
-            .with_env_var(
-                "TARGET_CC", "C:/hostedtoolcache/windows/ndk/r25b/x64/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe" 
-             /*   env.ndk
-                    .compiler_path(ndk::Compiler::Clang, "/clang.exe", min_sdk_version) //self.clang_triple(), min_sdk_version)
-                    .map_err(CompileLibError::MissingTool)?
-                    .display()
-                    .to_string()
-                    .replace("\\", "/"), */
-            )
-            .with_env_var("OPENSSL_DIR", "/usr/local/ssl".to_string().replace("\\", ""))
-            .with_env_var("DOPENSSLDIR", "/usr/local/ssl")
-            .with_env_var(
-                "TARGET_CXX",
-                env.ndk
-                    .compiler_path(ndk::Compiler::Clangxx, self.clang_triple(), min_sdk_version)
-                    .map_err(CompileLibError::MissingTool)?,
-            )
+            .with_env_var("TARGET_CC", clang_path)
+            .with_env_var("TARGET_CXX", clangxx_path)
             .with_args(&["--color", color])
             .run_and_wait()
             .map_err(|cause| CompileLibError::CargoFailed { mode, cause })?;
