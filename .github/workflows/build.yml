@@ -101,8 +101,8 @@ jobs:
         ls C:\cygwin-packages
     - name: clone cargo-mobile and tauri next branch
       run: |
-        git clone https://github.com/tauri-apps/cargo-mobile
-        git clone https://github.com/tauri-apps/tauri
+        git clone https://github.com/ludea/cargo-mobile
+        git clone https://github.com/ludea/tauri
         cd tauri && git checkout next
     - name: Copy some files
       run: |
