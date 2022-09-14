@@ -39,8 +39,6 @@ jobs:
       run: |
         rm tauri/tooling/cli/Cargo.toml
         mv Cargo.toml tauri/tooling/cli/Cargo.toml
-        rm cargo-mobile/src/android/target.rs
-        mv target.rs cargo-mobile/src/android/target.rs
     - name: Build tauri next branch
       run: |
         cd tauri/tooling/cli/node
