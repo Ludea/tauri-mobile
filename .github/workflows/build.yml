@@ -98,10 +98,6 @@ jobs:
         git clone https://github.com/ludea/cargo-mobile
         git clone https://github.com/ludea/tauri
         cd tauri && git checkout next
-    - name: Copy some files
-      run: |
-        rm tauri/tooling/cli/Cargo.toml
-        mv Cargo.toml tauri/tooling/cli/Cargo.toml
     - name: Build tauri next branch
       run: |
         cd tauri/tooling/cli/node
