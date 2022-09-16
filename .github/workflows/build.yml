@@ -122,7 +122,7 @@ jobs:
         rm src-tauri/gen/android/hello/app/build.gradle.kts
         mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
     - name: Build apk
-      run: C:\cygwin\bin\bash -c "yarn tauri android build"
+      run: C:\cygwin\bin\bash -c "yarn tauri android build -vv"
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - uses: actions/upload-artifact@v3
