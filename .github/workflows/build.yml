@@ -61,7 +61,7 @@ jobs:
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - name: Build apk
-      run: yarn tauri android build -vv
+      run: yarn tauri android build 
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - uses: actions/upload-artifact@v3
@@ -85,14 +85,6 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '11'
-    - uses: cygwin/cygwin-install-action@master
-      with:
-        packages: >-
-          perl
-    - name: ls
-      run: |
-        ls C:\cygwin\bin
-        ls C:\cygwin-packages
     - name: clone tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
@@ -121,7 +113,7 @@ jobs:
         rm src-tauri/gen/android/hello/app/build.gradle.kts
         mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
     - name: Build apk
-      run: C:\cygwin\bin\bash -c "yarn tauri android build" 
+      run: yarn tauri android build 
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - uses: actions/upload-artifact@v3
