@@ -22,10 +22,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16
-    - name: install Rust stable
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
     - uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
@@ -77,10 +73,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16
-    - name: install Rust stable
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
     - uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
@@ -120,6 +112,7 @@ jobs:
       with:
         name: apks
         path: |
+          gen/android/hello/app/build/outputs/apk/universal/release/app-universal-release-unsigned.apk 
           gen/android/hello/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk
           gen/android/hello/app/build/outputs/apk/arm64/debug/app-arm64-debug.apk 
           
@@ -131,10 +124,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16
-    - name: install Rust stable
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
     - name: Build tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
