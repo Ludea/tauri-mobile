@@ -42,6 +42,7 @@ jobs:
       with:
         ndk-version: r25b
         add-to-path: false
+        local-cache: true
     - name: Setup target
       run: rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
     - name: install app dependencies 
@@ -92,6 +93,7 @@ jobs:
       with:
         ndk-version: r25b
         add-to-path: false
+        local-cache: true 
     - name: Setup target
       run: rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android   
     - name: install app dependencies 
