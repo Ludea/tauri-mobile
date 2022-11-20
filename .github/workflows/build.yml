@@ -120,6 +120,7 @@ jobs:
       with:
         name: apks
         path: |
+          ls gen/android/hello/app/build/outputs/apk/arm64/
           gen/android/hello/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk
           gen/android/hello/app/build/outputs/apk/arm64/debug/app-arm64-debug.apk 
           
