@@ -27,6 +27,10 @@ android_logger = "0.11.1"
 [target.'cfg(target_os = "ios")'.dependencies]
 env_logger = "0.9.0"
 
+[features]
+default = [ "custom-protocol" ]
+custom-protocol = [ "tauri/custom-protocol" ]
+
 [profile.release]
 panic = "abort"
 codegen-units = 1
