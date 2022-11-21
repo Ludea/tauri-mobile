@@ -84,9 +84,8 @@ jobs:
         cd tauri && git checkout next
     - name: Build tauri next branch
       run: |
-        cd tauri/tooling/cli/node
-        yarn
-        yarn build
+        cd tauri/tooling/cli
+        cargo build --release
     - name: Setup NDK 
       uses: nttld/setup-ndk@v1
       id: setup-ndk
