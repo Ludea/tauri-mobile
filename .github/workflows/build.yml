@@ -12,12 +12,6 @@ env:
 jobs:
   Android:
     runs-on: ubuntu-22.04
-    
-    strategy:
-      fail-fast: false
-      matrix:
-        platform: [ubuntu-22.04, macos-12, windows-2022]
-        
     steps:
     - uses: actions/checkout@v3
     - name: install dependencies
