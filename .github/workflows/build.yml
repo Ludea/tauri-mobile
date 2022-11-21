@@ -27,21 +27,24 @@ jobs:
         distribution: 'temurin'
         java-version: '11'
         cache: gradle 
+    - uses: Swatinem/rust-cache@v2
+      with:
+        workspaces: |
+          tauri/tooling/cli
+          src-tauri
     - name: clone cargo-mobile and tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
         cd tauri && git checkout next
     - name: Build tauri next branch
       run: |
-        cd tauri/tooling/cli/node
-        yarn
-        yarn build
+        cd tauri/tooling/cli
+        cargo build
     - name: Setup NDK 
       uses: nttld/setup-ndk@v1
       id: setup-ndk
       with:
         ndk-version: r25b
-        add-to-path: true
         local-cache: true
     - name: Setup target
       run: rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
@@ -78,6 +81,12 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '11'
+        cache: gradle
+    - uses: Swatinem/rust-cache@v2
+      with:
+        workspaces: |
+          tauri/tooling/cli
+          src-tauri
     - name: clone tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
@@ -85,20 +94,19 @@ jobs:
     - name: Build tauri next branch
       run: |
         cd tauri/tooling/cli
-        cargo build --release
+        cargo build
     - name: Setup NDK 
       uses: nttld/setup-ndk@v1
       id: setup-ndk
       with:
         ndk-version: r25b
-        add-to-path: false
         local-cache: true 
     - name: Setup target
       run: rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android   
     - name: install app dependencies 
       run:  yarn && yarn build
     - name: Init Android Studio Project
-      run: yarn tauri android init
+      run: tauri/tooling/cli/target/debug/cargo-tauri android init
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - name: Replace build.gradle.kts
@@ -106,7 +114,7 @@ jobs:
         rm src-tauri/gen/android/hello/app/build.gradle.kts
         mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
     - name: Build apk
-      run: yarn tauri android build 
+      run: tauri/tooling/cli/target/debug/cargo-tauri android build 
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - uses: actions/upload-artifact@v3
