@@ -56,15 +56,7 @@ jobs:
     - name: install app dependencies 
       run:  yarn && yarn build
     - name: Init Android Studio Project
-      run: |
-        ls
-        tauri/tooling/cli/target/debug/cargo-tauri android init
-      env:
-        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-    - name: Replace some file
-      run: |
-        rm src-tauri/gen/android/hello/app/build.gradle.kts
-        mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
+      run: tauri/tooling/cli/target/debug/cargo-tauri android init
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - name: Build apk
