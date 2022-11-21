@@ -34,11 +34,6 @@ jobs:
         distribution: 'temurin'
         java-version: '11'
         cache: gradle 
-    - uses: Swatinem/rust-cache@v2
-      with:
-        workspaces: |
-          tauri/tooling/cli
-          src-tauri
     - name: Clone Tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
