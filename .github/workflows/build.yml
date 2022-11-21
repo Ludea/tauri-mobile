@@ -77,7 +77,7 @@ jobs:
       with:
         name: apks
         path: |
-          gen/android/hello/app/build/outputs/apk/**/release/*.apk
+          gen/android/hello/app/build/outputs/apk/**/**/*.apk
           
   IOS:
     runs-on: macos-latest
