@@ -10,11 +10,18 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  Android-Ubuntu:
-    runs-on: ubuntu-22.04
+  Android:
+    runs-on: ${{ matrix.platform }}
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [ubuntu-22.04, macos-12, windows-2022]
+        
     steps:
     - uses: actions/checkout@v3
     - name: install dependencies
+      if: matrix.platform == 'ubuntu-22.04'
       run: |
         sudo apt-get update
         sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0
@@ -32,7 +39,7 @@ jobs:
         workspaces: |
           tauri/tooling/cli
           src-tauri
-    - name: clone cargo-mobile and tauri next branch
+    - name: Clone Tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
         cd tauri && git checkout next
@@ -51,7 +58,9 @@ jobs:
     - name: install app dependencies 
       run:  yarn && yarn build
     - name: Init Android Studio Project
-      run: tauri/tooling/cli/target/debug/cargo-tauri android init
+      run: |
+        ls
+        tauri/tooling/cli/target/debug/cargo-tauri android init
       env:
         NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     - name: Replace some file
@@ -69,61 +78,6 @@ jobs:
         name: apks
         path: |
           gen/android/hello/app/build/outputs/apk/**/release/*.apk
-  Android-Windows:
-    runs-on: windows-2022
-    steps:
-    - uses: actions/checkout@v3
-    - name: setup node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-    - uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '11'
-        cache: gradle
-    - uses: Swatinem/rust-cache@v2
-      with:
-        workspaces: |
-          tauri/tooling/cli
-          src-tauri
-    - name: clone tauri next branch
-      run: |
-        git clone https://github.com/tauri-apps/tauri
-        cd tauri && git checkout next
-    - name: Build tauri next branch
-      run: |
-        cd tauri/tooling/cli
-        cargo build
-    - name: Setup NDK 
-      uses: nttld/setup-ndk@v1
-      id: setup-ndk
-      with:
-        ndk-version: r25b
-        local-cache: true 
-    - name: Setup target
-      run: rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android   
-    - name: install app dependencies 
-      run:  yarn && yarn build
-    - name: Init Android Studio Project
-      run: tauri/tooling/cli/target/debug/cargo-tauri android init
-      env:
-        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-    - name: Replace build.gradle.kts
-      run: |
-        rm src-tauri/gen/android/hello/app/build.gradle.kts
-        mv build.gradle.kts src-tauri/gen/android/hello/app/build.gradle.kts
-    - name: Build apk
-      run: tauri/tooling/cli/target/debug/cargo-tauri android build 
-      env:
-        NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-    - uses: actions/upload-artifact@v3
-      with:
-        name: apks
-        path: |
-          gen/android/hello/app/build/outputs/apk/universal/release/app-universal-release-unsigned.apk 
-          gen/android/hello/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk
-          gen/android/hello/app/build/outputs/apk/arm64/debug/app-arm64-debug.apk 
           
   IOS:
     runs-on: macos-latest
