@@ -32,8 +32,7 @@ jobs:
     - uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
-        java-version: '11'
-        cache: gradle 
+        java-version: '11' 
     - name: Clone Tauri next branch
       run: |
         git clone https://github.com/tauri-apps/tauri
