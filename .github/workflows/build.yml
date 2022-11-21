@@ -56,7 +56,6 @@ jobs:
         name: apks
         path: |
           src-tauri/gen/android/hello/app/build/outputs/apk/**/**/*.apk
-          src-tauri/gen/android/hello/app/build/outputs/apk/**/**/*.apk
           
   IOS:
     runs-on: macos-12
