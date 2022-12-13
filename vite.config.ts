@@ -9,14 +9,18 @@ export default defineConfig(async () => {
   
   plugins: [react(), tsconfigPaths()]
  
-  server: {
-    host: '0.0.0.0', // listen on all addresses
-    port: 5173,
-    strictPort: true,
-    hmr: {
-      protocol: 'ws',
-      host,
-      port: 5183,
+  const config = { 
+    server: {
+      host: '0.0.0.0', // listen on all addresses
+      port: 5173,
+      strictPort: true,
+      hmr: {
+        protocol: 'ws',
+        host,
+        port: 5183,
+      },
     },
-  },
+  }
+  
+  return config
 })
