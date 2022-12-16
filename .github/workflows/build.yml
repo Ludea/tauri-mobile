@@ -42,7 +42,9 @@ jobs:
         ndk-version: r25b
         local-cache: true
     - name: Debug
-      run: yarn && DEBUG="vite-tsconfig-paths" node_modules/.bin/vite dev
+      run: yarn && ls node_modules/@tsconfig/svelte
+    - name: Debug again
+      run: && DEBUG="vite-tsconfig-paths" node_modules/.bin/vite dev
     - name: install app dependencies 
       run:  yarn && yarn build
     - name: Init Android Studio Project
