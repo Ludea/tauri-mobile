@@ -47,11 +47,11 @@ jobs:
         ls 
         echo foo
         ls node_modules
-        echo bar
-        ls node_modules/@tsconfig/svelte
+  //      echo bar
+    //    ls node_modules/@tsconfig/svelte
     - name: Debug again
       run: |
-        yarn 
+     //   yarn 
         DEBUG="vite-tsconfig-paths" node_modules/.bin/vite dev
     - name: install app dependencies 
       run:  yarn && yarn build
