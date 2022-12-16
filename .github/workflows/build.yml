@@ -27,29 +27,12 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '11' 
-    - name: Clone Tauri next branch
-      run: |
-        git clone https://github.com/tauri-apps/tauri
-        cd tauri && git checkout next
-    - name: Build tauri next branch
-      run: |
-        cd tauri/tooling/cli
-        cargo build
     - name: Setup NDK 
       uses: nttld/setup-ndk@v1
       id: setup-ndk
       with:
         ndk-version: r25b
         local-cache: true
-    - name: Debug
-      run: |
-        yarn
-        ls 
-        echo foo
-        ls node_modules
-    - name: Debug again
-      run: | 
-        DEBUG="vite-tsconfig-paths" node_modules/.bin/vite dev
     - name: install app dependencies 
       run:  yarn && yarn build
     - name: Init Android Studio Project
