@@ -23,9 +23,9 @@ tauri = "2.0.0-alpha.1"
 [target.'cfg(any(target_os = "android", target_os = "ios"))'.dependencies]
 log = "0.4"
 
-[target.'cfg(target_os = "android")'.dependencies]
-git = "https://github.com/tyranron/android_logger-rs"
-branch = "fix-ci-check"
+#[target.'cfg(target_os = "android")'.dependencies]
+#git = "https://github.com/tyranron/android_logger-rs"
+#branch = "fix-ci-check"
 #android_logger = "0.11.1"
 
 [target.'cfg(target_os = "ios")'.dependencies]
