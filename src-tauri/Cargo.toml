@@ -24,7 +24,9 @@ tauri = "2.0.0-alpha.1"
 log = "0.4"
 
 [target.'cfg(target_os = "android")'.dependencies]
-android_logger = "0.11.1"
+git = https://github.com/tyranron/android_logger-rs
+branch = "fix-ci-check"
+#android_logger = "0.11.1"
 
 [target.'cfg(target_os = "ios")'.dependencies]
 env_logger = "0.10.0"
