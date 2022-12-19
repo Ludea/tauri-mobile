@@ -15,10 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: install dependencies
-      if: matrix.platform == 'ubuntu-22.04'
       run: |
         sudo apt-get update
-        sudo apt-get install -y libwebkit2gtk-4.0-dev build-essential curl wget libssl-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev
+        sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0
     - name: setup node
       uses: actions/setup-node@v3
       with:
@@ -58,13 +57,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16
-    - name: Build tauri next branch
-      run: |
-        git clone https://github.com/tauri-apps/tauri
-        cd tauri && git checkout next
-        cd tooling/cli/node
-        yarn
-        yarn build
     - name: install app dependencies and build it
       run: yarn && yarn build
     - name: Init Xcode Project
