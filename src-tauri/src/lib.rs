@@ -1,4 +1,4 @@
-/*#[cfg(target_os = "android")]
+#[cfg(target_os = "android")]
 fn init_logging() {
   android_logger::init_once(
     android_logger::Config::default()
@@ -10,7 +10,7 @@ fn init_logging() {
 #[cfg(not(target_os = "android"))]
 fn init_logging() {
   env_logger::init();
-}*/
+}
 
 #[tauri::mobile_entry_point]
 fn main() {
