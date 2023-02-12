@@ -8,7 +8,7 @@ export default defineConfig(async () => {
   const host = await internalIpV4();
   
   return {
-    plugins: [react(), tsconfigPaths({root: "./"})],
+    plugins: [react(), tsconfigPaths({projects: ["./tsconfig.json"] })],
  
     server: {
       host: '0.0.0.0', // listen on all addresses
