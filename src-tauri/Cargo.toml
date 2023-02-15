@@ -24,7 +24,7 @@ tauri = { git = "https://github.com/tauri-apps/tauri", branch = "next" }
 log = "0.4"
 
 [target.'cfg(target_os = "android")'.dependencies]
-android_logger = "0.12.0"
+android_logger = "0.13.0"
 
 [target.'cfg(target_os = "ios")'.dependencies]
 env_logger = "0.10.0"
