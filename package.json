@@ -12,7 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@mui/icons-material": "^5.11.9",
+    "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.10",
     "@mui/styles": "^5.11.9",
     "@types/react-router-dom": "^5.3.3",
